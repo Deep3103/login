@@ -11,30 +11,34 @@
 
 </head>
 
-<body background="marek-piwnicki-s_fgw1df-_I-unsplash.jpg">
+<body
+    background="https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
     <div class="container-md position-absolute top-50 start-50 translate-middle"
         style="border-radius: 0%; border: none; width: 40rem;">
         <div class="card shadow p-3 mb-5 bg-body-tertiary rounded text-bg-light"
             style="border-radius: 0%; border: none; width: 40rem;">
             <div class="card-body">
-                <form class="form--login">
+                <form class="form--login was-validated">
                     <label for="">Name</label>
-                    <input type="text" id="username" class="form-control" placeholder="User Name">
-
+                    <input type="text" id="username" class="form-control" placeholder="User Name" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
                     <br>
 
                     <label for="">Email Id</label>
-                    <input type="email" id="email" class="form-control" placeholder="@example.com">
-
+                    <input type="email" id="email" class="form-control" placeholder="@example.com" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
                     <br>
 
                     <label for="">Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="********">
-
+                    <input type="password" id="password" class="form-control" placeholder="********" required>
+                    <div class="valid"></div>
                     <br>
 
                     <label for="">Confirm Password </label>
-                    <input type="password" id="passconfirm" class="form-control" placeholder="********">
+                    <input type="password" id="passconfirm" class="form-control" placeholder="********" required>
+
 
                     <button type="submit" style="margin-top: 10px;" class="btn btn-primary">Submit</button>
                 </form>
@@ -48,51 +52,26 @@
 
 
     if (loginForm) {
-
         loginForm.addEventListener("submit", (e) => {
             e.preventDefault();
+
             let username = document.getElementById('username').value;
             let email = document.getElementById('email').value;
             let password = document.getElementById('password').value;
             let passconfirm = document.getElementById('passconfirm').value;
 
-            // console.log(username, email, password, passconfirm);
-
-            // if (username == "") {
-            //     let res1 = document.getElementById("username");
-            //     res1.innerHTML = "Username required"
-            // }
-            // else if (email == "") {
-            //     let res2 = document.getElementById("email");
-            //     res2.innerHTML = "Enter valid Email";
-            // }
-            // else if (passsword == "") {
-            //     let res3 = document.getElementById("password");
-            //     res3.innerHTML = "Enter valid password";
-            // }
-            // else if (passsword.length > 16 && passsword.length < 6) {
-            //     let cnf = document.getElementById("cnf");
-            //     cnf.innerHTML = "Password must contain 6 character";
-            // }
-            // else if (passconfirm != passsword) {
-            //     let res4 = document.getElementById("passconfirm");
-            //     res4.innerHTML = "Password must be same";
-            //     res4.style.color = "red";
-            // }
-            // else {
-            //     let res4 = document.getElementById("passconfirm");
-            //     res4.innerHTML = " login success";
-            //     res4.style.color = "green";
-            //     window.location.replace("submit.html");
-            // }
 
 
-            if (!username || !email || !password || !passconfirm) {
-                console.log('Please field all');
-                           
-            }else if(password == passconfirm) {
-                window.location.replace("submit.html");
+
+            if (password.length <= 8 || password.length >= 16) {
+
+                document.getElementById('password').attributes['required'] = 'Password must be between 8 and 16'
+                alert('Password must be between 9 and')
+            } else if (password === passconfirm) {
+                console.log('Successfull');
+                window.location.href = "submit.html";
             }
+
         })
 
     }
