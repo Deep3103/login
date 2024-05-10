@@ -40,7 +40,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div>  
 </body>
 <script>
     let loginForm = document.querySelector('.form--login');
@@ -54,38 +54,7 @@
             let username = document.getElementById('username').value;
             let email = document.getElementById('email').value;
             let password = document.getElementById('password').value;
-            let passconfirm = document.getElementById('passconfirm').value;
-
-            // console.log(username, email, password, passconfirm);
-
-            // if (username == "") {
-            //     let res1 = document.getElementById("username");
-            //     res1.innerHTML = "Username required"
-            // }
-            // else if (email == "") {
-            //     let res2 = document.getElementById("email");
-            //     res2.innerHTML = "Enter valid Email";
-            // }
-            // else if (passsword == "") {
-            //     let res3 = document.getElementById("password");
-            //     res3.innerHTML = "Enter valid password";
-            // }
-            // else if (passsword.length > 16 && passsword.length < 6) {
-            //     let cnf = document.getElementById("cnf");
-            //     cnf.innerHTML = "Password must contain 6 character";
-            // }
-            // else if (passconfirm != passsword) {
-            //     let res4 = document.getElementById("passconfirm");
-            //     res4.innerHTML = "Password must be same";
-            //     res4.style.color = "red";
-            // }
-            // else {
-            //     let res4 = document.getElementById("passconfirm");
-            //     res4.innerHTML = " login success";
-            //     res4.style.color = "green";
-            //     window.location.replace("submit.html");
-            // }
-
+            let passconfirm = document.getElementById('passconfirm').value; 
 
             if (!username || !email || !password || !passconfirm) {
                 console.log('Please field all');
